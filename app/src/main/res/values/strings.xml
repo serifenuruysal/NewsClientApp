@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TheNews</string>
+    <string name="entertainment">entertainment</string>
+    <string name="general">general</string>
+    <string name="health">health</string>
+    <string name="science">science</string>
+    <string name="sports">sports</string>
+    <string name="technology">technology</string>
+    <string name="business">business</string>
+</resources>

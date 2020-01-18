@@ -1,0 +1,115 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+ext {
+
+    androidGradlePlugin = "3.0.1"
+
+    buildToolsVersion = '27.0.2'
+
+    supportLibraryVersion = '28.0.0'
+
+    okhttp_version = '3.8.1'
+    retrofit_version = '2.2.0'
+    rxjava_version = '2.1.7'
+    androidArchitectureVersion = "1.1.0"
+    anko_version = '0.10.4'
+
+    // Koin
+    koinVersion = '1.0.0-beta-5'
+
+    // Kotlin
+    kotlin_version = '1.2.31'
+
+    //Kodein
+    kodein_version = "5.3.0"
+
+    paging_version = "2.1.0"
+
+    moshiVersion = '1.6.0'
+
+}
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
+    defaultConfig {
+        applicationId "com.androidapp.thenews"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            buildConfigField "String", "NEWS_API_KEY", "\"$news_api_key\""
+        }
+
+        release {
+            buildConfigField "String", "NEWS_API_KEY", "\"$news_api_key\""
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    //json
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    // Networking
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+
+    //Okhttp
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+
+    // ViewModel and LiveData
+    implementation "android.arch.lifecycle:extensions:$androidArchitectureVersion"
+    annotationProcessor "android.arch.lifecycle:compiler:$androidArchitectureVersion"
+    testImplementation "android.arch.core:core-testing:$androidArchitectureVersion"
+
+    // Rx
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+
+    implementation "com.android.support:cardview-v7:$supportLibraryVersion"
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+    implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
+
+    //Architecture Components
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+
+    //Paging
+    implementation "androidx.paging:paging-runtime:$paging_version"
+
+    //Moshi
+    implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
+    implementation "com.squareup.moshi:moshi-adapters:$moshiVersion"
+
+    //koin
+    implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
+}
