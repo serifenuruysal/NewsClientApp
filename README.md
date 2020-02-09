@@ -1,4 +1,4 @@
-# android-test-nur
+
 ![Category Page](https://github.com/Eisterhues/android-test-nur/blob/master/Screenshot_1572895143.webp?raw=true)
 ![News List Page](https://github.com/Eisterhues/android-test-nur/blob/master/Screenshot_1572895077.webp?raw=true)
 ![New Detail Page](https://github.com/Eisterhues/android-test-nur/blob/master/Screenshot_1572895160.webp?raw=true)
